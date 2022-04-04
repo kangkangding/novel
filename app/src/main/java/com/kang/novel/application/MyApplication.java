@@ -14,7 +14,12 @@ import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.scwang.smartrefresh.header.WaveSwipeHeader;
@@ -56,6 +61,15 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(@NonNull InitializationStatus initializationStatus) {
+
+                Log.d("initializationStatus", " initializationStatus = " + initializationStatus.getAdapterStatusMap());
+
+
+            }
+        });
         application = this;
 //        HttpUtil.trustAllHosts();//信任所有证书
 

@@ -94,6 +94,7 @@ public class HttpUtil {
      * @param callback
      */
     public static void sendGetRequest(final String address, final HttpCallback callback) {
+        Log.d("HttpGet address3", address);
         new Thread(new Runnable() {
             HttpURLConnection connection = null;
 
@@ -134,6 +135,7 @@ public class HttpUtil {
     }
 
     public static void sendGetRequest_okHttp(final String address, final HttpCallback callback) {
+        Log.d("HttpGet address", address);
         MyApplication.getApplication().newThread(() -> {
 
             try {
@@ -161,6 +163,7 @@ public class HttpUtil {
      * @param callback
      */
     public static void sendPostRequest(final String address, final String output, final HttpCallback callback) {
+        Log.d("HttpGet address2", address);
         new Thread(new Runnable() {
             HttpURLConnection connection = null;
 
